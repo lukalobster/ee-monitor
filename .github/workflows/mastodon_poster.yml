@@ -4,7 +4,7 @@ on:
   schedule:
     # Runs every 30 minutes (offset by 15 min from the monitor, so it always
     # runs AFTER the monitor has had a chance to update posts.md)
-    - cron: "15,45 * * * *"
+    
   workflow_dispatch:   # allow manual trigger from the Actions tab
 
 permissions:
