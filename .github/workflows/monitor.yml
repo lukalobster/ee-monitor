@@ -5,7 +5,7 @@ on:
     # Runs every 30 minutes
     # Note: GitHub Actions schedules have ~1 min jitter and may be delayed
     # during high-load periods, but will never be skipped entirely.
-    - cron: "*/30 * * * *"
+    
   workflow_dispatch:   # allow manual trigger from the Actions tab
 
 permissions:
