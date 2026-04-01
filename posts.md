@@ -51,3 +51,25 @@ europeelects.eu/poland
 
 
 ---
+
+## Post detected at 2026-04-01 13:44:15 UTC
+
+**Source:** [https://www.facebook.com/EuropeElects/posts/pfbid0ec87mq72oX74GxKJERT2xVQr43txWd1o6ueTWJd9Rs6RGVvHJjhdnYdLKZfHQtrRl](https://www.facebook.com/EuropeElects/posts/pfbid0ec87mq72oX74GxKJERT2xVQr43txWd1o6ueTWJd9Rs6RGVvHJjhdnYdLKZfHQtrRl)
+
+**Post ID (hash):** `467429eb74cd6d71`
+
+### Text
+
+Netherlands: following a request by NATO General Secretary Mark Rutte (VVD-RE), King Willem-Alexander (*) abdicates from the throne in favour of US President Donald Trump (GOP~ECR).
+Trump will be inaugurated as Daddy-King of the Netherlands on 27 April.
+➤
+europeelects.eu/netherlands
+
+### Image
+
+![Post image](images/467429eb74cd6d71.png)
+
+*Original URL:* https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-1/295042290_452900836844011_3792446769490561051_n.png?stp=dst-png&cstp=mx400x400&ctp=s400x400&_nc_cat=101&ccb=1-7&_nc_sid=3ab345&_nc_ohc=gqmgL7P8jpQQ7kNvwEIxKsv&_nc_oc=AdqhMueD7Pn_isnTwNP9o939TYxOf6-uFX-gRu3fiQ3OMOt2fU-wkkBSICD9FFTtD4I&_nc_zt=24&_nc_ht=scontent-sjc6-1.xx&_nc_gid=nrHvbknLJCsbF0e71bJONw&_nc_ss=7a389&oh=00_Af1-N7MuSgGWnI-9ekhkrotzDPcb8yoDVRtz3qw8TcKXVw&oe=69D2E341
+
+
+---
