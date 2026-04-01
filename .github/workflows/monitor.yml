@@ -2,42 +2,55 @@ name: EuropeElects Facebook Monitor
 
 on:
   schedule:
-    - cron: "*/10 * * * *"
-  workflow_dispatch:
+    # Runs every 30 minutes
+    # Note: GitHub Actions schedules have ~1 min jitter and may be delayed
+    # during high-load periods, but will never be skipped entirely.
+    - cron: "*/30 * * * *"
+  workflow_dispatch:   # allow manual trigger from the Actions tab
 
 permissions:
-  contents: write
+  contents: write      # needed to commit & push posts.md and images/
 
 jobs:
   monitor:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 8   # safety: kill if scrape.do takes too long
 
     steps:
+      # ── 1. Checkout the repository ──────────────────────────────────────────
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
+          # Fetch full history so we can push back without conflicts
           fetch-depth: 0
 
+      # ── 2. Set up Python ────────────────────────────────────────────────────
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: "pip"
 
+      # ── 3. Install dependencies ─────────────────────────────────────────────
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      # ── 4. Run the monitor script ───────────────────────────────────────────
       - name: Run monitor
         env:
           SCRAPEDO_TOKEN: ${{ secrets.SCRAPEDO_TOKEN }}
         run: python monitor.py
 
+      # ── 5. Commit & push any changes ────────────────────────────────────────
       - name: Commit and push changes
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Stage all changed/new files (posts.md, last_post_id.txt, images/)
           git add posts.md last_post_id.txt images/ 2>/dev/null || true
+
+          # Only commit if there are staged changes
           if git diff --cached --quiet; then
             echo "Nothing changed – no commit needed."
           else
