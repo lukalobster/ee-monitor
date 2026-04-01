@@ -201,21 +201,21 @@ def upload_image_to_mastodon(instance_url: str, token: str,
 def build_toot_text(post: dict) -> str:
     """
     Build the toot text from the post dict.
-    Truncates to MAX_TOOT_LENGTH characters, appending the source URL if space allows.
+    The Facebook source URL is intentionally NOT included — any links already
+    present in the post text (e.g. europeelects.eu/...) are kept as-is.
+    Truncates to MAX_TOOT_LENGTH characters if needed.
     """
     text = post["text"]
-    source = post["post_url"]
 
-    # Append source link
-    suffix = f"\n\n🔗 {source}" if source else ""
-    suffix += "\n\n#EuropeElects #polls #Europe"
+    # Only append hashtags — no Facebook link
+    suffix = "\n\n#EuropeElects #polls #Europe"
 
     full = text + suffix
     if len(full) <= MAX_TOOT_LENGTH:
         return full
 
     # Truncate text to fit within the limit
-    available = MAX_TOOT_LENGTH - len(suffix) - 4  # 4 for " …\n\n"
+    available = MAX_TOOT_LENGTH - len(suffix) - 2  # 2 for " …"
     return text[:available].rstrip() + " …" + suffix
 
 
